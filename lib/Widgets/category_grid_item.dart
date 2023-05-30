@@ -6,9 +6,13 @@ class CategoryGridItem extends StatelessWidget {
   const CategoryGridItem({
     Key? key,
     required this.category2,
+    required Null Function() onSelectCategory,
+    required Null Function() onSelectCategory,
+    required this.onSelectCategory,
   }) : super(key: key);
 
   final Category2 category2;
+  final void Function() onSelectCategory;
 
   @override
   Widget build(BuildContext context) {
