@@ -6,8 +6,6 @@ class CategoryGridItem extends StatelessWidget {
   const CategoryGridItem({
     Key? key,
     required this.category2,
-    required Null Function() onSelectCategory,
-    required Null Function() onSelectCategory,
     required this.onSelectCategory,
   }) : super(key: key);
 
@@ -17,7 +15,7 @@ class CategoryGridItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () {},
+      onTap: onSelectCategory,
       splashColor: Theme.of(context).primaryColor,
       borderRadius: BorderRadius.circular(16),
       child: Container(
@@ -41,5 +39,12 @@ class CategoryGridItem extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties.add(ObjectFlagProperty<void Function()>.has(
+        'onSelectCategory', onSelectCategory));
   }
 }
